@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+    
+<head>
+    <title>gov.uk dev dashboard</title>
+    
+    <link rel="stylesheet" href="css/master.css" type="text/css" media="screen" />
+    
+    <script type="text/javascript" src="js/jquery.js"></script>      
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="js/jquery.countdown.js"></script>
+    <script type="text/javascript" src="js/jquery.timeago.js"></script>
+    <script type="text/javascript" src="js/big-brother.js"></script>
+</head>                      
+                                                      
+<body>
+    
+    <header>
+        <h1>gov.uk <span>dev</span></h1>      
+        <div id="clock">00:00:00</div>
+        <div class="clear"></div>
+    </header>        
+           
+    <div class="wrap">
+        
+        <div class="column left">
+            <section id="checkins">
+                <h1>GitHub Activity</h1>
+                <ul>
+                    <li class="placeholder">
+                        <div class="overview">
+                            <div class="left"><span class="author"></span> pushed to <span class="app"></span></div>
+                            <div class="right"><span class="time">-</span></div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="changes"></div>
+                    </li>
+                </ul>
+            </section>               
+        </div>
+              
+        <div class="column right">
+            <section id="stats">
+                <div class="statistic" id="bug-count">
+                    <span class="number"></span>
+                    <span class="type">bugs</span>
+                </div>
+                <div class="statistic" id="velocity">
+                    <span class="number"></span>
+                    <span class="type">velocity</span>
+                </div>
+            </section> 
+        
+            <section id="bugs">
+                <h1>Bugs</h1>
+                <ul>
+                    <li class="placeholder">
+                        <div class="left">
+                            <span class="title"></span>
+                        </div>
+                        <div class="right">
+                            <span class="app"></span>
+                            <span class="owner"></span>          
+                        </div>
+                        <span class="clear"></span>
+                    </li>
+                </ul>
+            </section>               
+        </div>
+        
+        <div class="clear"></div>
+        
+    </div>
+    
+</body>
+    
+</html>
