@@ -33,7 +33,7 @@ section h1 {
 
 #checkins ul {
 	height: 500px;
-	overflow-y: scroll;       
+	overflow: hidden;       
 }                      
 #checkins li {              
 	background: #222;
