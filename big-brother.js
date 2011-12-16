@@ -1,3 +1,5 @@
+var TubeParser = require('./lib/tubeparser').TubeParser;
+
 BigBrother = {
   poll_interval: 60,
   clients: {},
@@ -134,7 +136,7 @@ BigBrother = {
   },
 
   tube: {
-    store: [],
+    store: {},
     'import': function(http_client, parser) {
       var options = {
         host: "cloud.tfl.gov.uk",
@@ -150,12 +152,7 @@ BigBrother = {
           data.push(chunk);
         });
         response.on('end', function() {
-          var xml = data.join('').replace('<?xml version="1.0" encoding="utf-8"?>','<?xml version="1.0" encoding="UTF-8"?>').replace(/<ArrayOfLineStatus.*>/,'<ArrayOfLineStatus>');
-          xml = xml.replace(/\r\n\s*/gi,"");
-          BigBrother.tube.store = null;
-          BigBrother.parser.parseString(xml, function(err,data){
-            console.dir(err);
-          });
+          BigBrother.tube.store = new TubeParser().parse(data.join(''));
         });
       }).on('error', function(e) {
         console.log("[BigBrother.tube.import] Got error: " + e.message);
