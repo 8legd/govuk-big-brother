@@ -21,7 +21,7 @@ header h1 span { font-weight: normal; }
 header #clock { float: right; font-size: 1.8em; text-align: left; width: 6em; }
              
 .wrap { padding: 1em; }    
-.column { width: 49%; margin-bottom: 1em; }                
+.column { width: 49%; }                
                       
 section h1 {
 	font-size: 1.7em;
@@ -32,7 +32,7 @@ section h1 {
 } 
 
 #checkins ul {
-	height: 570px;
+	height: 560px;
 	overflow: hidden;       
 }                      
 #checkins li {              
@@ -113,7 +113,7 @@ section h1 {
 	#bugs li.state_delivered 		{ color: #94E971; }
                               
 #tube {
-	
+	margin-top: 1.5em;
 } 
 #tube > .status { width: 50%; font-size: 1.3em; text-transform: uppercase; float: left; } 
 #tube > .status h2 { display: inline-block; width: 35%; padding: 0.4em; }
