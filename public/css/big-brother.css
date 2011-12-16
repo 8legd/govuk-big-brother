@@ -1,4 +1,4 @@
-body, html { background: #000; }
+body, html { background: #000; overflow: hidden; }
 
 body {
 	font-family: "GothamBold", Helvetica, Arial, sans-serif;
@@ -32,7 +32,7 @@ section h1 {
 } 
 
 #checkins ul {
-	height: 580px;
+	height: 570px;
 	overflow: hidden;       
 }                      
 #checkins li {              
@@ -115,11 +115,11 @@ section h1 {
 #tube {
 	
 } 
-#tube > .status { width: 50%; float: left; } 
-#tube > .status h2 { display: inline-block; width: 30%; text-transform: uppercase; padding: 0.6em; }
+#tube > .status { width: 50%; font-size: 1.3em; text-transform: uppercase; float: left; } 
+#tube > .status h2 { display: inline-block; width: 35%; padding: 0.4em; }
 #tube > .status.central_line h2 { background: #A31616; }                                                       
 #tube > .status.piccadilly_line h2 { background: #013975; } 
-#tube > .status div { display: inline-block; width: 55%; padding: 0.6em;}                                                      
+#tube > .status div { display: inline-block; width: 55%; padding: 0.4em;}                                                      
 
 
 .app.publisher 		{ color: #956DCA; } /* Purple */
