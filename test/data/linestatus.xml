@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfLineStatus xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://webservices.lul.co.uk/">
+  <LineStatus ID="0" StatusDetails="">
+    <BranchDisruptions />
+    <Line ID="1" Name="Bakerloo" />
+    <Status ID="GS" CssClass="GoodService" Description="Good Service" IsActive="true">
+      <StatusType ID="1" Description="Line" />
+    </Status>
+  </LineStatus>
+  <LineStatus ID="1" StatusDetails="">
+    <BranchDisruptions />
+    <Line ID="2" Name="Central" />
+    <Status ID="GS" CssClass="GoodService" Description="Good Service" IsActive="true">
+      <StatusType ID="1" Description="Line" />
+    </Status>
+  </LineStatus>
+</ArrayOfLineStatus>
