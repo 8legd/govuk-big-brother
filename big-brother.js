@@ -155,7 +155,7 @@ BigBrother = {
       }).on('error', function(e) {
         console.log("[BigBrother.tube.import] Got error: " + e.message);
       });
-      BigBrother.tube.poll = setTimeout(function(){BigBrother.tube.update();},BigBrother.poll_interval*1000);
+      BigBrother.tube.poll = setTimeout(function(){BigBrother.tube['import']();},BigBrother.poll_interval*1000);
     }
   }
 };
