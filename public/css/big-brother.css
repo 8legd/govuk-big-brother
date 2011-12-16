@@ -21,7 +21,7 @@ header h1 span { font-weight: normal; }
 header #clock { float: right; font-size: 1.8em; text-align: left; width: 6em; }
              
 .wrap { padding: 1em; }    
-.column { width: 49%; }                
+.column { width: 49%; margin-bottom: 1em; }                
                       
 section h1 {
 	font-size: 1.7em;
@@ -32,7 +32,7 @@ section h1 {
 } 
 
 #checkins ul {
-	height: 500px;
+	height: 580px;
 	overflow: hidden;       
 }                      
 #checkins li {              
@@ -111,6 +111,16 @@ section h1 {
 #bugs li.state_finished,
 	#bugs li.state_accepted,
 	#bugs li.state_delivered 		{ color: #94E971; }
+                              
+#tube {
+	
+} 
+#tube > .status { width: 50%; float: left; } 
+#tube > .status h2 { display: inline-block; width: 30%; text-transform: uppercase; padding: 0.6em; }
+#tube > .status.central_line h2 { background: #A31616; }                                                       
+#tube > .status.piccadilly_line h2 { background: #013975; } 
+#tube > .status div { display: inline-block; width: 55%; padding: 0.6em;}                                                      
+
 
 .app.publisher 		{ color: #956DCA; } /* Purple */
 .app.frontend 		{ color: #47B1CA; } /* Blue */

@@ -34,13 +34,10 @@ BigBrother = {
             json = JSON.parse(data.join(''));
             json.forEach(function(hash){
               if (BigBrother.commits.sha_store.indexOf(hash.sha) == -1) {
-                console.dir("New hash "+ hash);
                 hash.app = hash.commit.url.match(/repos\/alphagov\/([A-Za-z0-9\-]+)\//)[1];
                 if (BigBrother.socket)
                     BigBrother.socket.emit('commits.new', hash);
                 BigBrother.commits.add(hash);
-              } else {
-                console.dir("Hash "+ hash.sha +" already exists.");
               }
             }.bind(this));
           });
@@ -137,6 +134,7 @@ BigBrother = {
 
   tube: {
     store: {},
+    poll: null,
     'import': function(http_client, parser) {
       var options = {
         host: "cloud.tfl.gov.uk",
@@ -145,7 +143,7 @@ BigBrother = {
       };
 
       BigBrother.clients.http.get(options, function(response) {
-        //console.log("[BigBrother.tube.import] Got response: " + response.statusCode);
+        console.log("[BigBrother.tube.import] Got response: " + response.statusCode);
         response.setEncoding('ascii');
         var data = [];
         response.on('data', function(chunk) {
@@ -153,10 +151,11 @@ BigBrother = {
         });
         response.on('end', function() {
           BigBrother.tube.store = new TubeParser().parse(data.join(''));
-        });
+        });                                                         
       }).on('error', function(e) {
         console.log("[BigBrother.tube.import] Got error: " + e.message);
       });
+      BigBrother.tube.poll = setTimeout(function(){BigBrother.tube.update();},BigBrother.poll_interval*1000);
     }
   }
 };

@@ -6,9 +6,8 @@ var BigBrother = {
     BigBrother.clock();
     BigBrother.bugs.fetch();
     BigBrother.commits.fetch();
-    BigBrother.project.fetch();
-
-    BigBrother.fetchTubeStatus();
+    BigBrother.project.fetch();  
+    BigBrother.tube.fetch();  
   },
 
   clock: function() {
@@ -80,11 +79,17 @@ var BigBrother = {
     }
   },
 
-  fetchTubeStatus: function() {
-    $.getJSON('/data/tube.json', function(data){
-
-    });
-  }
+  tube: {
+    fetch: function() {
+      $.getJSON('/data/tube.json', function(data){
+        BigBrother.tube.display(data);
+      });
+    },                                
+    display: function(data) {
+      $('#tube .status.central_line div').text(data.Central.description);  
+      $('#tube .status.piccadilly_line div').text(data.Piccadilly.description);
+    }
+  },
 
 };
 
@@ -107,6 +112,10 @@ $(document).ready(function() {
   BigBrother.socket.on('commits.new',function(data){
     window.console.log('Received new commit: '+ data);
     BigBrother.commits.receive(data);
+  }); 
+  BigBrother.socket.on('tube.new',function(data){
+    window.console.log('Received tube status update: '+ data);
+    BigBrother.tube.display(data);
   });
 
 });
