@@ -98,8 +98,8 @@ String.prototype.truncate = function(n){
 };
 
 $(document).ready(function() {
-  BigBrother.initialize();
-  BigBrother.socket = io.connect('http://localhost');
+  BigBrother.initialize();                                
+  BigBrother.socket = io.connect("http://"+window.location.hostname+":"+window.location.port);
 
   BigBrother.socket.on('bugs.update',function(data){
     window.console.log('Received bugs update: '+ data);
