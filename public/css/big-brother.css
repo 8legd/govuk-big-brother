@@ -106,7 +106,8 @@ section h1 {
 }                                      
 
 #bugs li.state_not_started,
- 	#bugs li.state_unscheduled	{ color: #FF7076; }    
+ 	#bugs li.state_unscheduled,
+	#bugs li.state_unstarted		{ color: #FF7076; }    
 #bugs li.state_started 		 		{ color: #FFA453; }
 #bugs li.state_finished,
 	#bugs li.state_accepted,

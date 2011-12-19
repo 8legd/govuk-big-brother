@@ -73,7 +73,7 @@ BigBrother = {
       var options = {
         host: "www.pivotaltracker.com",
         port: 443,
-        path: "/services/v3/projects/380195/stories?filter=type%3Abug",
+        path: "/services/v3/projects/380195/stories?filter=type%3Abug%20state%3Aunscheduled,unstarted,started,finished,delivered",
         headers: {"X-TrackerToken": BigBrother.tokens.pivotalTracker}
       };
 
