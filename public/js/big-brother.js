@@ -117,5 +117,8 @@ $(document).ready(function() {
     window.console.log('Received tube status update: '+ data);
     BigBrother.tube.display(data);
   });
+  BigBrother.socket.on('disconnect',function(data){
+    window.location.reload();
+  });
 
 });
