@@ -101,7 +101,7 @@ section h1 {
 	width: 210px;
 	height: 1em;
 }
-#bugs li .left { width: 65%; }
+#bugs li .left { width: 60%; }
 #bugs li .title { 
 	color: #888;
 	overflow: hidden; 
