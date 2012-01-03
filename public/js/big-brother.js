@@ -33,7 +33,7 @@ var BigBrother = {
         var app = story.labels;
 
         bug.removeClass('placeholder').addClass('state_'+story.current_state);
-        bug.find('.title').text(story.name.truncate(30));
+        bug.find('.title').text(story.name.truncate(36));
         bug.find('.owner').text(owner);
         bug.find('.app').addClass(app).text(app);
 

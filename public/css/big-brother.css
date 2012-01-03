@@ -58,7 +58,7 @@ section h1 {
 } 
 
 #stats {
-	height: 130px;
+	height: 110px;
 }              
 
 #stats .statistic {
@@ -81,7 +81,8 @@ section h1 {
 }                
 
 #bugs {
-	height: 300px;
+	height: 495px;
+	overflow: hidden;
 }              
 #bugs li {
 	background: #222;
@@ -89,12 +90,18 @@ section h1 {
 	margin-bottom: 0.2em; 
 	border-left: 6px solid;
 }                
-#bugs li span {
+#bugs li span {                 
 	display: inline-block; 
 	font-weight: bold;
 	text-transform: uppercase; 
 }             
-#bugs li .left { width: 70%; }
+#bugs li span.app {
+	font-size: 0.9em;
+	text-align: right;
+	width: 210px;
+	height: 1em;
+}
+#bugs li .left { width: 65%; }
 #bugs li .title { 
 	color: #888;
 	overflow: hidden; 
@@ -103,7 +110,10 @@ section h1 {
 }        
 #bugs li .owner {
 	color: #666;
-}                                      
+}                
+#bugs li span.clear {
+	display: block;
+}                      
 
 #bugs li.state_not_started,
  	#bugs li.state_unscheduled,
