@@ -113,7 +113,7 @@ $(document).ready(function() {
     window.console.log('Received new commit: '+ data);
     BigBrother.commits.receive(data);
   }); 
-  BigBrother.socket.on('tube.new',function(data){
+  BigBrother.socket.on('tube.update',function(data){
     window.console.log('Received tube status update: '+ data);
     BigBrother.tube.display(data);
   });

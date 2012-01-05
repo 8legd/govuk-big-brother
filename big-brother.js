@@ -151,6 +151,8 @@ BigBrother = {
         });
         response.on('end', function() {
           BigBrother.tube.store = new TubeParser().parse(data.join(''));
+          if (BigBrother.socket)
+            BigBrother.socket.emit('tube.update', BigBrother.tube.store);
         });                                                         
       }).on('error', function(e) {
         console.log("[BigBrother.tube.import] Got error: " + e.message);
