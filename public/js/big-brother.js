@@ -101,8 +101,12 @@ $(document).ready(function() {
   BigBrother.initialize();                                
   BigBrother.socket = io.connect("http://"+window.location.hostname+":"+window.location.port);
 
-  BigBrother.socket.on('bugs.update',function(data){
+  BigBrother.socket.on('connection',function(data){
     $('#status').attr('class','up');
+  });
+  BigBrother.socket.on('bugs.update',function(data){
+    window.console.log('Received bugs update: '+ data);
+    BigBrother.bugs.display(data);
   });
   BigBrother.socket.on('bugs.update',function(data){
     window.console.log('Received bugs update: '+ data);
