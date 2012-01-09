@@ -102,6 +102,9 @@ $(document).ready(function() {
   BigBrother.socket = io.connect("http://"+window.location.hostname+":"+window.location.port);
 
   BigBrother.socket.on('bugs.update',function(data){
+    $('#status').attr('class','up');
+  });
+  BigBrother.socket.on('bugs.update',function(data){
     window.console.log('Received bugs update: '+ data);
     BigBrother.bugs.display(data);
   });
@@ -118,6 +121,7 @@ $(document).ready(function() {
     BigBrother.tube.display(data);
   });
   BigBrother.socket.on('disconnect',function(data){
+    $('#status').attr('class','down');
     window.location.reload();
   });
 

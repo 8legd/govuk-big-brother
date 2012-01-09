@@ -132,6 +132,9 @@ section h1 {
 #tube > .status.piccadilly_line h2 { background: #013975; } 
 #tube > .status div { display: inline-block; width: 55%; padding: 0.4em;}                                                      
 
+#status { background: #ddd; display: block; float: right; margin: -60px 20px 0 0; width: 32px; height: 32px; }
+#status.up { background: #33ca00; }
+#status.down { background: #ca0000; }
 
 .app.publisher 		{ color: #956DCA; } /* Purple */
 .app.frontend 		{ color: #47B1CA; } /* Blue */
