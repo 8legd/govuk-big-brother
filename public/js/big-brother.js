@@ -101,7 +101,7 @@ $(document).ready(function() {
   BigBrother.initialize();                                
   BigBrother.socket = io.connect("http://"+window.location.hostname+":"+window.location.port);
 
-  BigBrother.socket.on('connection',function(data){
+  BigBrother.socket.on('connect',function(data){
     $('#status').attr('class','up');
   });
   BigBrother.socket.on('bugs.update',function(data){
