@@ -26,21 +26,25 @@ BigBrother = {
         BigBrother.clients.https.get(options, function(response) {
           console.log("[BigBrother.commits.import] Got response: " + response.statusCode);
           response.setEncoding('utf8');
-          var data = [];
-          response.on('data', function(chunk) {
-            data.push(chunk);
-          });
-          response.on('end', function() {
-            json = JSON.parse(data.join(''));
-            json.forEach(function(hash){
-              if (BigBrother.commits.sha_store.indexOf(hash.sha) == -1) {
-                hash.app = hash.commit.url.match(/repos\/alphagov\/([A-Za-z0-9\-]+)\//)[1];
-                if (BigBrother.socket)
-                    BigBrother.socket.emit('commits.new', hash);
-                BigBrother.commits.add(hash);
-              }
-            }.bind(this));
-          });
+          if (response.statusCode == 200) {
+            var data = [];
+            response.on('data', function(chunk) {
+              data.push(chunk);
+            });
+            response.on('end', function() {
+              json = JSON.parse(data.join(''));
+              json.forEach(function(hash){
+                if (BigBrother.commits.sha_store.indexOf(hash.sha) == -1) {
+                  hash.app = hash.commit.url.match(/repos\/alphagov\/([A-Za-z0-9\-]+)\//)[1];
+                  if (BigBrother.socket)
+                      BigBrother.socket.emit('commits.new', hash);
+                  BigBrother.commits.add(hash);
+                }
+              }.bind(this));
+            });
+          else {
+            console.log("[BigBrother.commits.import] Status code " + response.statusCode + " returned for " + options.path);
+          }
         }).on('error', function(e) {
           console.log("[BigBrother.commits.import] Got error: " + e.message);
         });
