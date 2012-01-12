@@ -42,7 +42,7 @@ BigBrother = {
                 }
               }.bind(this));
             });
-          else {
+          } else {
             console.log("[BigBrother.commits.import] Status code " + response.statusCode + " returned for " + options.path);
           }
         }).on('error', function(e) {
