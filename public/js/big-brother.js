@@ -109,23 +109,23 @@ $(document).ready(function() {
     $('#status').attr('class','up');
   });
   BigBrother.socket.on('bugs.update',function(data){
-    window.console.log('Received bugs update: '+ data);
+    window.console.log('Received bugs update: '+ JSON.stringify(data));
     BigBrother.bugs.display(data);
   });
   BigBrother.socket.on('bugs.update',function(data){
-    window.console.log('Received bugs update: '+ data);
+    window.console.log('Received bugs update: '+ JSON.stringify(data));
     BigBrother.bugs.display(data);
   });
   BigBrother.socket.on('project.update',function(data){
-    window.console.log('Received project update: '+ data);
+    window.console.log('Received project update: '+ JSON.stringify(data));
     BigBrother.project.display(data);
   });
   BigBrother.socket.on('commits.new',function(data){
-    window.console.log('Received new commit: '+ data);
+    window.console.log('Received new commit: '+ JSON.stringify(data));
     BigBrother.commits.receive(data);
   }); 
   BigBrother.socket.on('tube.update',function(data){
-    window.console.log('Received tube status update: '+ data);
+    window.console.log('Received tube status update: '+ JSON.stringify(data));
     BigBrother.tube.display(data);
   });
   BigBrother.socket.on('disconnect',function(data){
