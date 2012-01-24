@@ -19,6 +19,11 @@ BigBrother.countdown.until = process.env.bb_countdown_end;
 BigBrother.clients.http = http;
 BigBrother.clients.https = https;
 
+io.configure(function () { 
+  io.set("transports", ["xhr-polling"]); 
+  io.set("polling duration", 10); 
+});
+
 io.sockets.on('connection', function(socket){
   BigBrother.socket = socket;
 });
