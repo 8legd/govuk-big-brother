@@ -27,20 +27,22 @@ var BigBrother = {
       });
     },
     display: function(data) {
-      $('#bug-count .number').text(data.story.length);
-      $('#bugs li').not('.placeholder').remove();
-      $.each(data.story,function(key,story){
-        var owner = (story.owned_by) ? story.owned_by.split(" ").map(function(i){ return i.substring(0,1); }).join("") : "--";
-        var bug = $('#bugs li.placeholder').clone();
-        var app = story.labels;
+      if (data.story) {
+        $('#bug-count .number').text(data.story.length);
+        $('#bugs li').not('.placeholder').remove();
+        $.each(data.story,function(key,story){
+          var owner = (story.owned_by) ? story.owned_by.split(" ").map(function(i){ return i.substring(0,1); }).join("") : "--";
+          var bug = $('#bugs li.placeholder').clone();
+          var app = story.labels;
 
-        bug.removeClass('placeholder').addClass('state_'+story.current_state);
-        bug.find('.title').text(story.name.truncate(30));
-        bug.find('.owner').text(owner);
-        bug.find('.app').addClass(app).text(app);
+          bug.removeClass('placeholder').addClass('state_'+story.current_state);
+          bug.find('.title').text(story.name.truncate(30));
+          bug.find('.owner').text(owner);
+          bug.find('.app').addClass(app).text(app);
 
-        bug.appendTo('#bugs ul');
-      });
+          bug.appendTo('#bugs ul');
+        });
+      }
     }
   },
 
