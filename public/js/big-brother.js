@@ -13,7 +13,9 @@ var BigBrother = {
   clock: function() {
     var countdownEnd = null;
     $.getJSON('/data/countdown.json?'+Date.now(), function(data){
-      $('#clock').countdown({until: new Date(data.until), layout: "{dn}{sep}{hnn}{sep}{mnn}{sep}{snn}", compact: true});
+      if (data.until) {
+        $('#clock').countdown({until: new Date(data.until), layout: "{dn}{sep}{hnn}{sep}{mnn}{sep}{snn}", compact: true});
+      }
     });
 
   },
