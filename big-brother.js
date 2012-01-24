@@ -1,10 +1,14 @@
 var TubeParser = require('./lib/tubeparser').TubeParser;
+var xml2js  = require("xml2js");
 
 BigBrother = {
   poll_interval: 60,
   clients: {},
   tokens: {},
-  parser: null,
+  parseString: function(str, callback) {
+    parser = new xml2js.Parser({normalize: false, trim:false});
+    parser.parseString(str,callback);
+  },
   socket: null,
   countdown: {
     until: '5 November 1955'
@@ -90,7 +94,8 @@ BigBrother = {
         });
         response.on('end', function() {
           var xml = data.join('');
-          BigBrother.parser.parseString(xml, function(err, data){
+          console.log("[BigBrother.bugs.import] Data received: "+ xml);
+          BigBrother.parseString(xml, function(err, data){
             BigBrother.bugs.store = data;
             if (BigBrother.socket)
                 BigBrother.socket.emit('bugs.update', data);
@@ -123,7 +128,7 @@ BigBrother = {
         });
         response.on('end', function() {
           var xml = data.join('');
-          BigBrother.parser.parseString(xml, function(err, data){
+          BigBrother.parseString(xml, function(err, data){
             BigBrother.project.store = data;
             if (BigBrother.socket)
                 BigBrother.socket.emit('project.update', data);

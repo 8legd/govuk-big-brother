@@ -5,15 +5,13 @@
 
 var express = require('express'),
     http    = require("http"),
-    https   = require("https"),
-    xml2js  = require("xml2js");
+    https   = require("https");
 
 require('./big-brother.js');
 
 var app = module.exports = express.createServer();
 var io = require('socket.io').listen(app);
 
-BigBrother.parser = new xml2js.Parser({normalize: false, trim:false});
 BigBrother.tokens.pivotalTracker = process.env.bb_pivotal_token;
 BigBrother.countdown.until = process.env.bb_countdown_end;
 BigBrother.clients.http = http;
